@@ -20,7 +20,9 @@ $(document).ready(function() {
 var wordTranslate = function(inputArray) {
   var resultArray = []
   var resultArray2 = []
-  if (/[aeiou]/i.test(inputArray[0])) {
+  if (/[0-9]/.test(inputArray[0])) {
+    return inputArray[0];
+  } else if (/[aeiou]/i.test(inputArray[0])) {
     resultArray = inputArray;
     resultArray.push("way");
     return resultArray.join("");
