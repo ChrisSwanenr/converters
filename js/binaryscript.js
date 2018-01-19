@@ -3,16 +3,19 @@ $(document).ready(function() {
     event.preventDefault();
     var userInput = $("#inputBinary").val();
     var inputArray = userInput.split("");
-    var eightBitArray = [1,2,4,8,16,32,64,128]
+    var bitArray = [];
+    for (var i = 0; i<inputArray.length; i++) {
+      bitArray.push((Math.pow(2,i)));
+    }
+    console.log(bitArray);
     var toSumArray = [];
     inputArray.reverse();
     if (checkBinary(userInput)) {
       for(var i=0; i<inputArray.length; i++) {
         var digitNum = parseInt(inputArray[i]);
-        toSumArray.push(digitNum * eightBitArray[i]);
+        toSumArray.push(digitNum * bitArray[i]);
         var result = toSumArray.reduce(function (a,b) {
           return a + b;
-
         })
         $("#binaryResult").text(result);
       }
